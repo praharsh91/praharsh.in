@@ -5,197 +5,129 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Praharsh Patel</title>
-    <link rel="icon" type="image/x-icon" href="Pr.png">
-    <!-- Google Fonts - Orbitron for headings, Segoe UI for body text -->
+    <!-- Google Fonts - Orbitron for headings -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for easy theme management and consistency */
+        /* CSS Variables for easy theme management */
         :root {
             --primary: #2e8b57;
-            /* Sea Green */
             --secondary: #f5f5dc;
-            /* Off-white / Beige */
             --dark: #0f0f0f;
-            /* Very Dark Gray */
             --gray: #cccccc;
-            /* Light Gray */
             --accent: #1f1f1f;
-            /* Dark Gray for navigation/footer */
             --glass-bg: rgba(255, 255, 255, 0.05);
-            /* Transparent white for glass effect background */
             --glass-border: rgba(255, 255, 255, 0.1);
-            /* Slightly more opaque white for glass border */
         }
 
-        /* Base styles for the entire page */
         body {
             margin: 0;
             padding: 0;
             background: var(--dark);
-            /* Dark background for the body */
             color: var(--secondary);
-            /* Default text color */
             font-family: 'Segoe UI', sans-serif;
-            /* Modern, clean sans-serif font */
             position: relative;
             overflow-x: hidden;
-            /* Prevent horizontal scrollbars */
-            line-height: 1.6;
-            /* Improve readability of text */
         }
 
-        /* Navigation Bar styles */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
             background: var(--accent);
-            /* Dark accent background for nav */
             position: sticky;
-            /* Make nav sticky at the top when scrolling */
             top: 0;
             z-index: 1000;
-            /* Ensure nav stays on top of other content */
             border-bottom: 1px solid var(--glass-border);
-            /* Subtle border at the bottom */
         }
 
         nav h1 {
             font-family: 'Orbitron', sans-serif;
-            /* Specific font for the name/logo text */
             color: var(--primary);
-            /* Green color for the name */
             font-size: 1.5rem;
-            margin: 0;
-            /* Remove default margin */
         }
 
-        /* Styling for the logo image within the navbar */
         nav div img {
             height: 40px;
-            /* Fixed height for the logo */
             border-radius: 50%;
-            /* Make the logo perfectly round */
-            vertical-align: middle;
-            /* Align image vertically with text */
         }
 
-        /* Mobile menu toggle button */
         .menu-toggle {
             display: none;
-            /* Hidden by default on larger screens */
             font-size: 1.5rem;
             background: var(--primary);
-            /* Green background for the toggle button */
             color: var(--dark);
-            /* Dark text color for contrast */
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 8px;
             cursor: pointer;
             z-index: 1001;
-            /* Ensure toggle button is above other elements */
-            transition: background 0.3s ease;
-            /* Smooth transition on hover */
         }
 
-        .menu-toggle:hover {
-            background: #1e6d45;
-            /* Slightly darker green on hover */
-        }
-
-        /* Menu items list */
         .menu-items {
             list-style: none;
-            /* Remove bullet points */
             display: flex;
-            /* Horizontal layout for menu items */
             gap: 1.5rem;
-            /* Space between menu items */
             margin: 0;
             padding: 0;
         }
 
         .menu-items li a {
             text-decoration: none;
-            /* Remove underline from links */
             color: var(--secondary);
-            /* Default link color */
             font-weight: 500;
             transition: color 0.3s ease;
-            /* Smooth color transition on hover */
         }
 
         .menu-items li a:hover {
             color: var(--primary);
-            /* Green color on hover */
         }
 
-        /* Responsive adjustments for mobile devices (max-width 768px) */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
-                /* Show the menu toggle button on small screens */
             }
 
             .menu-items {
                 position: absolute;
                 top: 65px;
-                /* Position below the nav bar */
                 right: 20px;
                 flex-direction: column;
-                /* Stack menu items vertically */
                 background: var(--accent);
-                /* Dark accent background for mobile menu */
                 border: 1px solid var(--glass-border);
                 border-radius: 12px;
                 padding: 1rem;
                 gap: 1rem;
                 display: none;
-                /* Hidden by default on mobile */
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-                /* Soft shadow for depth */
                 z-index: 999;
-                /* Below toggle button but above content */
             }
 
             .menu-items.active {
                 display: flex;
-                /* Show menu when 'active' class is added by JavaScript */
             }
         }
 
-        /* Background layers for subtle visual effects */
         .layer-background,
         .layer-gradient,
         .layer-grid {
-            position: fixed;
-            /* Use fixed for full viewport coverage */
+            position: absolute;
             width: 100%;
             height: 100%;
+            z-index: -3;
             top: 0;
             left: 0;
-            z-index: -3;
-            /* Send to back, behind all content */
-            pointer-events: none;
-            /* Ensure these layers don't interfere with mouse events */
         }
 
         .layer-background {
             background: linear-gradient(135deg, var(--primary), var(--dark));
-            /* Gradient background */
             filter: blur(80px);
-            /* Heavy blur for a soft, ambient glow */
             opacity: 0.2;
-            /* Subtle opacity */
         }
 
         .layer-gradient {
             background: radial-gradient(circle at center, transparent 20%, rgba(0, 255, 170, 0.05) 80%);
-            /* Radial glow */
-            animation: pulse 6s infinite ease-in-out;
-            /* Pulsing animation for dynamic effect */
+            animation: pulse 6s infinite;
         }
 
         .layer-grid::before {
@@ -203,16 +135,12 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            /* Grid pattern using linear gradients */
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
-            /* Size of the grid cells */
             animation: drift 60s linear infinite;
-            /* Slow, continuous drift animation for the grid */
         }
 
-        /* Keyframe animations for background effects */
         @keyframes pulse {
 
             0%,
@@ -235,32 +163,20 @@
             100% {
                 transform: translate(100px, 100px);
             }
-
-            /* Drifts diagonally */
         }
 
-        /* Glassmorphism effect for various content sections */
         .glass {
             background: var(--glass-bg);
-            /* Transparent background */
             backdrop-filter: blur(12px);
-            /* Blur content behind */
             border: 1px solid var(--glass-border);
-            /* Subtle border */
             border-radius: 16px;
-            /* Rounded corners */
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            /* Soft shadow */
             padding: 2rem;
             margin: 2rem auto;
-            /* Center the glass elements with margin */
             width: 90%;
             max-width: 1000px;
-            /* Max width for content readability */
             transform-style: preserve-3d;
-            /* Enable 3D transforms for children */
             animation: float 8s ease-in-out infinite;
-            /* Gentle floating animation */
         }
 
         @keyframes float {
@@ -273,11 +189,8 @@
             50% {
                 transform: translateY(-10px) rotateX(1deg);
             }
-
-            /* Slight vertical float and tilt */
         }
 
-        /* Header section styling */
         .header-center {
             display: flex;
             justify-content: center;
@@ -291,58 +204,30 @@
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
             color: var(--primary);
-            /* Green color for the main heading */
         }
 
         .header-center p {
             font-size: 1.2rem;
             color: var(--secondary);
-            /* White color for the sub-heading text */
         }
 
-        /* About Me section styling */
         .about {
             text-align: center;
             font-size: 1.1rem;
         }
 
-        /* Make the About Me section's heading green and paragraph white */
         .about h2 {
             color: var(--primary);
-            /* Apply the primary green color to heading */
         }
 
         .about p {
             color: var(--secondary);
-            /* Apply the secondary (white) color to paragraph */
         }
 
-        /* Scroll reveal animation styles */
-        .reveal {
-            opacity: 0;
-            /* Initially hidden */
-            transform: translateY(30px);
-            /* Start slightly below its final position */
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            /* Smooth transition */
-            will-change: opacity, transform;
-            /* Optimize for animation */
-        }
-
-        .reveal.active {
-            opacity: 1;
-            /* Fully visible */
-            transform: translateY(0);
-            /* Move to its final position */
-        }
-
-        /* Projects section styling */
         .project-section {
             padding: 4rem 5%;
-            /* Padding for the section */
             position: relative;
             z-index: 1;
-            /* Ensure projects are above background layers */
         }
 
         .section-title {
@@ -350,38 +235,30 @@
             font-size: 2.5rem;
             margin-bottom: 2rem;
             color: var(--primary);
-            /* Green color for section titles */
         }
 
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            /* Responsive grid for project cards */
             gap: 2rem;
-            /* Space between grid items */
         }
 
         .project-card {
             transition: transform 0.5s ease, box-shadow 0.3s ease;
-            /* Smooth hover effects */
             overflow: hidden;
             cursor: pointer;
             transform-style: preserve-3d;
-            /* Enable 3D transforms for children */
         }
 
         .project-card:hover {
-            transform: scale(1.03) rotateY(3deg);
-            /* Subtle 3D scale and rotation on hover */
+            transform: scale(1.05) rotateY(5deg);
             box-shadow: 0 0 30px rgba(0, 255, 170, 0.3);
-            /* Soft green glow on hover */
         }
 
         .project-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            /* Ensure images fill the space without distortion */
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
         }
@@ -392,22 +269,15 @@
 
         .project-card .content h3 {
             color: var(--primary);
-            /* Green color for project titles */
             margin-bottom: 0.5rem;
             font-size: 1.5rem;
         }
 
-        /* Contact section form styling */
         .contact-section form {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            /* Two columns for form fields on larger screens */
             column-gap: 2rem;
             row-gap: 1rem;
-            max-width: 700px;
-            /* Limit form width */
-            margin: 0 auto;
-            /* Center the form */
         }
 
         .contact-section form textarea,
@@ -417,114 +287,53 @@
             border-radius: 8px;
             border: none;
             background: #2b2b2b;
-            /* Darker input background */
             color: var(--secondary);
-            /* White text in inputs */
             font-size: 1rem;
-            outline: none;
-            /* Remove default outline */
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            /* Smooth focus effect */
-        }
-
-        .contact-section form input:focus,
-        .contact-section form textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.5);
-            /* Green glow on focus */
         }
 
         .contact-section form textarea {
             grid-column: span 2;
-            /* Textarea spans two columns */
             resize: vertical;
-            /* Allow vertical resizing only */
-            min-height: 100px;
-            /* Minimum height for textarea */
+            height: 100px;
         }
 
         .contact-section button {
             grid-column: span 2;
-            /* Button spans two columns */
             padding: 1rem;
             background: var(--primary);
-            /* Green background for submit button */
             color: var(--dark);
-            /* Dark text for contrast */
             font-weight: bold;
             font-size: 1rem;
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-            /* Smooth hover and click effects */
+            transition: background 0.3s ease;
         }
 
         .contact-section button:hover {
             background: #1e6d45;
-            /* Darker primary on hover */
-            transform: translateY(-2px);
-            /* Slight lift on hover */
         }
 
-        .contact-section button:active {
-            transform: translateY(0);
-            /* Push down on click */
-        }
-
-        /* Message box for form submission feedback */
-        .message-box {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: var(--dark);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-            z-index: 1002;
-            /* Above other elements */
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .message-box.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-
-        /* Footer styling */
         footer {
             text-align: center;
             font-size: 1rem;
             padding: 2rem 0;
             background: var(--accent);
-            /* Dark accent background for footer */
             color: var(--gray);
-            /* Light gray text */
             border-top: 1px solid var(--glass-border);
             margin-top: 3rem;
             border-radius: 0 0 16px 16px;
-            /* Rounded bottom corners (if the body has rounded corners) */
         }
 
-        /* Responsive adjustments for contact form on smaller screens */
         @media (max-width: 600px) {
             .contact-section form {
                 grid-template-columns: 1fr;
-                /* Single column layout for form fields */
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Background layers for subtle visual effects (fixed position for full viewport coverage) -->
     <div class="layer-background"></div>
     <div class="layer-gradient"></div>
     <div class="layer-grid"></div>
@@ -532,15 +341,12 @@
     <!-- Navigation Bar -->
     <nav>
         <div style="display: flex; align-items: center; gap: 1rem;">
-            <!-- Logo with descriptive alt text -->
-            <img src="./Pr.png" alt="Praharsh Patel's Logo" />
+            <img src="./Pr.png" alt="Logo" />
             <h1>Praharsh</h1>
         </div>
 
-        <!-- Mobile Menu Toggle Button for accessibility -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle mobile menu">☰</button>
+        <button class="menu-toggle" id="menuToggle">☰</button>
 
-        <!-- Navigation Menu Items -->
         <ul class="menu-items" id="menuItems">
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -549,81 +355,74 @@
         </ul>
     </nav>
 
-    <!-- Header Section - introducing the portfolio owner -->
+    <!-- Header Section -->
     <header class="glass header-center">
         <h1>Praharsh Patel</h1>
         <p>19 y/o Web Developer & UI/UX Designer from Ahmedabad</p>
     </header>
 
-    <!-- About Me Section - now with scroll reveal -->
-    <section id="about" class="about glass reveal">
+    <!-- About Me Section -->
+    <section id="about" class="about glass">
         <h2>About Me</h2>
-        <p>I'm a passionate student and self-taught web developer with a keen eye for UI/UX design. I love turning ideas
-            into visually appealing and functional digital experiences. Always learning and growing!</p>
+        <p>I'm a passionate student and self-taught web developer with a keen eye for UI/UX design.</p>
     </section>
 
-    <!-- Projects Section - showcasing work -->
+    <!-- Projects Section -->
     <section id="projects" class="project-section">
         <h2 class="section-title">Projects</h2>
         <div class="projects">
-            <!-- Project Card 1 - with scroll reveal -->
-            <div class="project-card glass reveal">
-                <img src="1.png" alt="Personal Portfolio Project" />
+            <div class="project-card glass">
+                <img src="1.png" alt="Portfolio" />
                 <div class="content">
                     <h3>Personal Portfolio</h3>
-                    <p>A modern, responsive portfolio to showcase skills and projects. Built using HTML, CSS and
-                        JavaScript with a clean and minimal design.</p>
+                    <p>A modern, responsive portfolio to showcase skills and projects.</p>
                 </div>
             </div>
-
-            <!-- Project Card 2 - with scroll reveal -->
-            <div class="project-card glass reveal">
-                <img src="2.png" alt="Admin Dashboard UI Project" />
+            <div class="project-card glass">
+                <img src="2.png" alt="Dashboard UI" />
                 <div class="content">
                     <h3>Admin Dashboard UI</h3>
-                    <p>Futuristic UI for admin panel using Figma and React with Tailwind CSS. Focused on clean interface
-                        and dark-mode design.</p>
+                    <p>Futuristic UI for admin panel using Figma and React with Tailwind CSS.</p>
                 </div>
             </div>
-
-            <!-- Project Card 3 - with scroll reveal -->
-            <div class="project-card glass reveal">
-                <img src="3.png" alt="Startup Landing Page Project" />
+            <div class="project-card glass">
+                <img src="3.png" alt="Landing Page" />
                 <div class="content">
                     <h3>Startup Landing Page</h3>
-                    <p>Landing page designed for a startup using modern web practices with a responsive and visually
-                        engaging layout.</p>
+                    <p>Landing page designed for a startup with modern practices and layout.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section - for inquiries -->
+    <!-- Contact Section -->
     <section id="contact" class="contact-section glass">
         <h2 class="section-title">Contact Us</h2>
         <p style="text-align: center; margin-bottom: 1rem;">Phone: <strong>7016994288</strong> | Email:
             <strong>praharshpatel18@gmail.com</strong>
         </p>
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" />
-            <input type="text" name="city" placeholder="City" required aria-label="Your City" />
-            <input type="text" name="country" placeholder="Country" required aria-label="Your Country" />
-            <input type="tel" name="mobile" placeholder="Mobile Number" required aria-label="Your Mobile Number" />
-            <input type="email" name="email" placeholder="Email Address" required aria-label="Your Email Address" />
-            <textarea name="suggestion" placeholder="Your Message..." required aria-label="Your Message"></textarea>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="text" name="city" placeholder="City" required />
+            <input type="text" name="country" placeholder="Country" required />
+            <input type="tel" name="mobile" placeholder="Mobile Number" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <textarea name="suggestion" placeholder="Your Message..." required></textarea>
             <button type="submit">Submit</button>
         </form>
-        <!-- Message box for form submission feedback -->
-        <div id="messageBox" class="message-box"></div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class="glass">
         © 2025 Praharsh Patel | All Rights Reserved
     </footer>
 
-    <!-- External JavaScript file for interactive elements and dynamic behavior -->
-    <script src="web.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        document.getElementById("menuToggle").addEventListener("click", function () {
+            document.getElementById("menuItems").classList.toggle("active");
+        });
+    </script>
 </body>
 
 </html>

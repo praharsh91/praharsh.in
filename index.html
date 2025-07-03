@@ -4,240 +4,173 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Praharsh Patel</title>
-    <link rel="icon" href="Pr.png" type="image/png">
-    <!-- Google Fonts - Orbitron for headings -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <title>Praharsh Patel | Web Developer & UI/UX Designer</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="script.js"></script>
+
     <style>
-        /* CSS Variables for easy theme management */
-        :root {
-            --primary: #2e8b57;
-            --secondary: #f5f5dc;
-            --dark: #0f0f0f;
-            --gray: #cccccc;
-            --accent: #1f1f1f;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background: var(--dark);
-            color: var(--secondary);
-            font-family: 'Segoe UI', sans-serif;
-            position: relative;
+            background: #0f0f0f;
+            color: #fff;
             overflow-x: hidden;
         }
 
-        nav {
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background: var(--accent);
-            position: sticky;
+            background: #0f0f0f;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 2px 8px rgba(0, 255, 213, 0.1);
         }
 
-        nav h1 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-
-        nav div img {
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            background: var(--primary);
-            color: var(--dark);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .menu-items {
-            list-style: none;
+        .logo {
             display: flex;
-            gap: 1.5rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        .menu-items li a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .menu-items li a:hover {
-            color: var(--primary);
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .menu-items {
-                position: absolute;
-                top: 65px;
-                right: 20px;
-                flex-direction: column;
-                background: var(--accent);
-                border: 1px solid var(--glass-border);
-                border-radius: 12px;
-                padding: 1rem;
-                gap: 1rem;
-                display: none;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-                z-index: 999;
-            }
-
-            .menu-items.active {
-                display: flex;
-            }
-        }
-
-        .layer-background,
-        .layer-gradient,
-        .layer-grid {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -3;
-            top: 0;
-            left: 0;
-        }
-
-        .layer-background {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            filter: blur(80px);
-            opacity: 0.2;
-        }
-
-        .layer-gradient {
-            background: radial-gradient(circle at center, transparent 20%, rgba(0, 255, 170, 0.05) 80%);
-            animation: pulse 6s infinite;
-        }
-
-        .layer-grid::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: drift 60s linear infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 0.05;
-            }
-
-            50% {
-                transform: scale(1.1);
-                opacity: 0.1;
-            }
-        }
-
-        @keyframes drift {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(100px, 100px);
-            }
-        }
-
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            padding: 2rem;
-            margin: 2rem auto;
-            width: 90%;
-            max-width: 1000px;
-            transform-style: preserve-3d;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotateX(0deg);
-            }
-
-            50% {
-                transform: translateY(-10px) rotateX(1deg);
-            }
-        }
-
-        .header-center {
-            display: flex;
-            justify-content: center;
             align-items: center;
-            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: #00ffd5;
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .menu-icon {
+            font-size: 1.5rem;
+            color: #00ffd5;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 2rem;
+            background: #1e1e1e;
             flex-direction: column;
-            padding: 3rem 1rem;
+            border-radius: 0.5rem;
         }
 
-        .header-center h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
+        .menu.show {
+            display: flex;
         }
 
-        .header-center p {
+        .menu a {
+            padding: 1rem;
+            text-align: right;
+            transition: background 0.3s;
+        }
+
+        .menu a:hover {
+            background: #00ffd5;
+            color: #000;
+        }
+
+        header {
+            height: 100vh;
+            background: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .intro h1 {
+            font-size: 3rem;
+            color: #00ffd5;
+        }
+
+        .intro p {
+            margin-top: 1rem;
             font-size: 1.2rem;
-            color: var(--secondary);
+            color: #bbb;
+            max-width: 600px;
+            margin-inline: auto;
         }
 
-        .about {
-            text-align: center;
-            font-size: 1.1rem;
+        .section {
+            padding: 5rem 2rem;
+            background: #1a1a1a;
         }
 
-        .about h2 {
-            color: var(--primary);
-        }
-
-        .about p {
-            color: var(--secondary);
-        }
-
-        .project-section {
-            padding: 4rem 5%;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-title {
-            text-align: center;
+        .section h2 {
             font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary);
+            text-align: center;
+            color: #00ffd5;
+            margin-bottom: 2.5rem;
         }
 
+        /* About Section */
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3.5rem;
+        }
+
+        .about-photo img {
+            width: 210px;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #00ffd5;
+        }
+
+        .about-divider {
+            width: 100px;
+            height: 2px;
+            background: #ccc;
+        }
+
+        .about-text {
+            max-width: 600px;
+            color: #ccc;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .about-divider {
+                width: 2px;
+                height: 160px;
+            }
+
+            .about-text {
+                text-align: left;
+            }
+        }
+
+        /* Projects */
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -245,185 +178,267 @@
         }
 
         .project-card {
-            transition: transform 0.5s ease, box-shadow 0.3s ease;
-            overflow: hidden;
+            background: #222;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 15px rgba(0, 255, 213, 0.15);
+            transition: 0.3s ease;
             cursor: pointer;
-            transform-style: preserve-3d;
         }
 
         .project-card:hover {
-            transform: scale(1.05) rotateY(5deg);
-            box-shadow: 0 0 30px rgba(0, 255, 170, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(0, 255, 213, 0.4);
         }
 
         .project-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .project-card .content {
-            padding: 1rem;
-        }
-
-        .project-card .content h3 {
-            color: var(--primary);
+        .project-card h3 {
+            color: #00ffd5;
             margin-bottom: 0.5rem;
-            font-size: 1.5rem;
         }
 
-        .contact-section form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: 2rem;
-            row-gap: 1rem;
+        .project-card p {
+            color: #ccc;
         }
 
-        .contact-section form textarea,
-        .contact-section form input {
-            width: 100%;
-            padding: 0.75rem;
-            border-radius: 8px;
-            border: none;
-            background: #2b2b2b;
-            color: var(--secondary);
-            font-size: 1rem;
+        /* Modal */
+        .project-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
         }
 
-        .contact-section form textarea {
-            grid-column: span 2;
-            resize: vertical;
-            height: 100px;
-        }
-
-        .contact-section button {
-            grid-column: span 2;
-            padding: 1rem;
-            background: var(--primary);
-            color: var(--dark);
-            font-weight: bold;
-            font-size: 1rem;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .contact-section button:hover {
-            background: #1e6d45;
-        }
-
-        footer {
+        .modal-content {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            width: 90%;
             text-align: center;
-            font-size: 1rem;
-            padding: 2rem 0;
-            background: var(--accent);
-            color: var(--gray);
-            border-top: 1px solid var(--glass-border);
-            margin-top: 3rem;
-            border-radius: 0 0 16px 16px;
         }
 
-        @media (max-width: 600px) {
-            .contact-section form {
-                grid-template-columns: 1fr;
-            }
+        .modal-content img {
+            max-width: 100%;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .close-btn {
+            font-size: 1.5rem;
+            color: #00ffd5;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            cursor: pointer;
+        }
+
+        /* Contact */
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.75rem 1rem;
+            border: 2px solid #00ffd5;
+            background: transparent;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #00ffd5;
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: #121212;
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #888;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-icons a {
+            color: #00ffd5;
+            transition: 0.3s;
+        }
+
+        .footer-icons a:hover {
+            color: #00ffa6;
+        }
+
+        /* Scroll Animation */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        [data-animate].active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
-    <div class="layer-background"></div>
-    <div class="layer-gradient"></div>
-    <div class="layer-grid"></div>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <img src="./Pr.png" alt="Logo" />
-            <h1>Praharsh</h1>
+    <div class="navbar">
+        <div class="logo">
+            <img src="images/pr.png" alt="Logo" />
+            Praharsh
         </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <a href="#home" onclick="hideMenu()">Home</a>
+            <a href="#about" onclick="hideMenu()">About</a>
+            <a href="#projects" onclick="hideMenu()">Projects</a>
+            <a href="#contact" onclick="hideMenu()">Contact</a>
+        </div>
+    </div>
 
-        <button class="menu-toggle" id="menuToggle">☰</button>
-
-        <ul class="menu-items" id="menuItems">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Header Section -->
-    <header class="glass header-center">
-        <h1>Praharsh Patel</h1>
-        <p>19 y/o Web Developer & UI/UX Designer from Ahmedabad</p>
+    <header id="home">
+        <div class="intro">
+            <h1>Welcome</h1>
+            <p>I’m a Web Developer with a strong focus on UI/UX design, creating seamless and visually engaging digital
+                experiences.</p>
+        </div>
     </header>
 
-    <!-- About Me Section -->
-    <section id="about" class="about glass">
-        <h2>About Me</h2>
-        <p>I'm a passionate student and self-taught web developer with a keen eye for UI/UX design.</p>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="project-section">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects">
-            <div class="project-card glass">
-                <img src="1.png" alt="Portfolio" />
-                <div class="content">
-                    <h3>Personal Portfolio</h3>
-                    <p>A modern, responsive portfolio to showcase skills and projects.</p>
-                </div>
+    <section class="section" id="about">
+        <h2 data-animate>About</h2>
+        <div class="about-container" data-animate>
+            <div class="about-photo">
+                <img src="images/ph.jpeg" alt="Praharsh Patel" />
             </div>
-            <div class="project-card glass">
-                <img src="2.png" alt="Dashboard UI" />
-                <div class="content">
-                    <h3>Admin Dashboard UI</h3>
-                    <p>Futuristic UI for admin panel using Figma and React with Tailwind CSS.</p>
-                </div>
-            </div>
-            <div class="project-card glass">
-                <img src="3.png" alt="Landing Page" />
-                <div class="content">
-                    <h3>Startup Landing Page</h3>
-                    <p>Landing page designed for a startup with modern practices and layout.</p>
-                </div>
+            <div class="about-divider"></div>
+            <div class="about-text">
+                <p>Hello, I’m <strong>Praharsh Patel</strong> — a student and dedicated Web Developer based in
+                    Ahmedabad, Gujarat. I specialize in creating clean, responsive websites with a strong emphasis on
+                    UI/UX design.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section glass">
-        <h2 class="section-title">Contact Us</h2>
-        <p style="text-align: center; margin-bottom: 1rem;">Phone: <strong>7016994288</strong> | Email:
-            <strong>praharshpatel18@gmail.com</strong>
-        </p>
-        <form>
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="text" name="city" placeholder="City" required />
-            <input type="text" name="country" placeholder="Country" required />
-            <input type="tel" name="mobile" placeholder="Mobile Number" required />
-            <input type="email" name="email" placeholder="Email Address" required />
-            <textarea name="suggestion" placeholder="Your Message..." required></textarea>
+    <section class="section" id="projects">
+        <h2 data-animate>Featured Projects</h2>
+        <div class="projects">
+            <div class="project-card" onclick="openModal(this)" data-title="Portfolio Website" data-image="images/1.png"
+                data-description="A sleek and animated portfolio built with HTML, CSS, JS.">
+                <img src="images/1.png" alt="Portfolio Website" />
+                <h3>Portfolio Website</h3>
+                <p>A sleek and animated portfolio built with HTML, CSS, JS.</p>
+            </div>
+            <div class="project-card" onclick="openModal(this)" data-title="UI Design System" data-image="images/2.png"
+                data-description="Custom-built components and design guidelines for scalable interfaces.">
+                <img src="images/2.png" alt="UI Design System" />
+                <h3>UI Design System</h3>
+                <p>Custom-built components and design guidelines for scalable interfaces.</p>
+            </div>
+            <div class="project-card" onclick="openModal(this)" data-title="Startup Landing Page"
+                data-image="images/3.png"
+                data-description="Responsive and conversion-focused landing page for startups.">
+                <img src="images/3.png" alt="Startup Landing Page" />
+                <h3>Startup Landing Page</h3>
+                <p>Responsive and conversion-focused landing page for startups.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="project-modal" id="project-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="Project Image" />
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <section class="section" id="contact">
+        <h2 data-animate>Contact</h2>
+        <form class="contact-form" data-animate>
+            <input type="text" placeholder="Name" required />
+            <input type="tel" placeholder="Phone Number" required />
+            <input type="email" placeholder="Email" required />
+            <textarea rows="5" placeholder="Your Message" required></textarea>
             <button type="submit">Submit</button>
         </form>
     </section>
 
-    <!-- Footer -->
-    <footer class="glass">
-        © 2025 Praharsh Patel | All Rights Reserved
+    <footer>
+        <div class="footer-icons">
+            <a href="https://wa.me/917016994288" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:praharshpatel18@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://instagram.com/praharsh_91" target="_blank" title="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/in/7016994288" target="_blank" title="LinkedIn"><i
+                    class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2025 Praharsh Patel. All rights reserved.</p>
     </footer>
 
-    <!-- Menu Toggle Script -->
     <script>
-        document.getElementById("menuToggle").addEventListener("click", function () {
-            document.getElementById("menuItems").classList.toggle("active");
+        // Animation
+        document.querySelectorAll('[data-animate]').forEach(el => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(el);
         });
+
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show');
+        }
+
+        function hideMenu() {
+            document.getElementById('menu').classList.remove('show');
+        }
+
+        function openModal(card) {
+            document.getElementById("modal-title").textContent = card.dataset.title;
+            document.getElementById("modal-image").src = card.dataset.image;
+            document.getElementById("modal-description").textContent = card.dataset.description;
+            document.getElementById("project-modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("project-modal").style.display = "none";
+        }
     </script>
+    <script src="script.js"></script>
+
 </body>
 
 </html>
